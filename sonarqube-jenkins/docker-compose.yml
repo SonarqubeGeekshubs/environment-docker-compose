@@ -1,13 +1,10 @@
-version: "2"
+version: "3"
 
 services:
   sonarqube:
     image: sonarqube
     ports:
       - "9000:9000"
-    networks:
-      - sonarqubenet
-    dns: 8.8.8.8
     environment:
       - SONARQUBE_JDBC_URL=jdbc:postgresql://db:5432/sonar
     volumes:
@@ -18,9 +15,6 @@ services:
 
   db:
     image: postgres:9.6
-    networks:
-      - sonarqubenet
-    dns: 8.8.8.8
     environment:
       - POSTGRES_USER=sonar
       - POSTGRES_PASSWORD=sonar
@@ -34,15 +28,8 @@ services:
     ports:
       - "8080:8080"
       - "50000:50000"
-    dns: 8.8.8.8
-    networks:
-      - sonarqubenet
     volumes:
       - jenkins_home:/var/jenkins_home
-
-networks:
-  sonarqubenet:
-    driver: bridge
 
 volumes:
   sonarqube_conf:

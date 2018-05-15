@@ -1,24 +1,21 @@
-# Run Sonarqube with PostgreSQL and Jenkins CI
+# SonarQube with Jenkins CI
 
 ## Requirements
 
- * Docker Engine 1.9
- * Docker Compose 1.6
+ * Docker CE 1.18.x
 
 ## Compose file
 
-Create this `docker-compose.yml` file:
+Execute this `docker-compose.yml` file:
 
 ```yaml
-version: "2"
+version: "3"
 
 services:
   sonarqube:
     image: sonarqube
     ports:
       - "9000:9000"
-    networks:
-      - sonarnet
     environment:
       - SONARQUBE_JDBC_URL=jdbc:postgresql://db:5432/sonar
     volumes:
@@ -28,9 +25,7 @@ services:
       - sonarqube_bundled-plugins:/opt/sonarqube/lib/bundled-plugins
 
   db:
-    image: postgres
-    networks:
-      - sonarnet
+    image: postgres:9.6
     environment:
       - POSTGRES_USER=sonar
       - POSTGRES_PASSWORD=sonar
@@ -40,18 +35,12 @@ services:
       - postgresql_data:/var/lib/postgresql/data
 
   ci:
-    image: jenkins
+    image: jenkinsci/blueocean
     ports:
       - "8080:8080"
       - "50000:50000"
-    networks:
-      - sonarnet
     volumes:
       - jenkins_home:/var/jenkins_home
-
-networks:
-  sonarnet:
-    driver: bridge
 
 volumes:
   sonarqube_conf:
@@ -85,9 +74,5 @@ mvn sonar:sonar \
 
 ## To be improved
 
- + Backup
- + Clustering
- + Upgrade
- + Admin password
  + Plugins
  + ...

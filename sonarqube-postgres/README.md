@@ -2,23 +2,20 @@
 
 ## Requirements
 
- * Docker Engine 1.9
- * Docker Compose 1.6
+ * Docker CE 1.18.x
 
 ## Compose file
 
-Create this `docker-compose.yml` file:
+Execute this `docker-compose.yml` file:
 
 ```yaml
-version: "2"
+version: "3"
 
 services:
   sonarqube:
     image: sonarqube
     ports:
       - "9000:9000"
-    networks:
-      - sonarnet
     environment:
       - SONARQUBE_JDBC_URL=jdbc:postgresql://db:5432/sonar
     volumes:
@@ -28,9 +25,7 @@ services:
       - sonarqube_bundled-plugins:/opt/sonarqube/lib/bundled-plugins
 
   db:
-    image: postgres
-    networks:
-      - sonarnet
+    image: postgres:9.6
     environment:
       - POSTGRES_USER=sonar
       - POSTGRES_PASSWORD=sonar
@@ -38,10 +33,6 @@ services:
       - postgresql:/var/lib/postgresql
       # This needs explicit mapping due to https://github.com/docker-library/postgres/blob/4e48e3228a30763913ece952c611e5e9b95c8759/Dockerfile.template#L52
       - postgresql_data:/var/lib/postgresql/data
-
-networks:
-  sonarnet:
-    driver: bridge
 
 volumes:
   sonarqube_conf:
