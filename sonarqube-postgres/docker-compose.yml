@@ -14,7 +14,7 @@ services:
       - sonarqube_bundled-plugins:/opt/sonarqube/lib/bundled-plugins
 
   db:
-    image: postgres
+    image: postgres:9.6
     environment:
       - POSTGRES_USER=sonar
       - POSTGRES_PASSWORD=sonar
