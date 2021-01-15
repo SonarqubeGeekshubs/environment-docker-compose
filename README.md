@@ -112,14 +112,20 @@ node {
 
 ### Quality Game
 
-Repository:
+Checkout Repository: https://github.com/mechero/code-quality-game
 
-https://github.com/mechero/code-quality-game
-
+Update .env file:
+````
+BACKEND_VERSION=1.2.0
+UI_VERSION=1.0.4
+SONAR_SERVER=http://host.docker.internal:9000
+SONAR_TOKEN=4e992e6874ef0f26f0bbc1b247d1dedda2819849
+LEGACY_DATE=2020-12-31
+EARLYBIRD_DATE=2021-01-14
+CAMPAIGNSTART_DATE=2021-01-14
+````
 
 Docker:
 ```
-$ git checkout feature/docker-compose-code-quality-game
 $ docker-compose -f code-quality-game-docker-compose.yml up
 ```
- 
