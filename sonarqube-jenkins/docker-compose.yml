@@ -28,7 +28,7 @@ services:
       - postgresql_data:/var/lib/postgresql/data
 
   ci:
-    image: jenkinsci/blueocean
+    image: jenkins/jenkins
     ports:
       - "8080:8080"
       - "50000:50000"
