@@ -29,9 +29,12 @@ sonar-scanner \
 
 https://github.com/SonarqubeGeekshubs/environment-docker-compose/blob/master/sonarqube-postgres/docker-compose.yml
 
+Run in [sonarqube-postgres](sonarqube-postgres) dir:
+```
 docker-compose up -d
+```
 
-remove all
+Command to stop and remove compose environment:
 
 ```
 docker-compose down --rmi local -v --remove-orphans
@@ -70,16 +73,12 @@ docker run -it --rm -v ~/.m2.docker:/root/.m2 -v $PWD:/usr/src/ -w /usr/src/ mav
 
 https://github.com/SonarqubeGeekshubs/environment-docker-compose
 
+Run in [sonarqube-jenkins](sonarqube-jenkins) dir:
 ```
 $ git clone git@github.com:SonarqubeGeekshubs/environment-docker-compose.git
 $ cd environment-docker-compose/sonarqube-jenkins
 $ docker-compose up -d
 ```
-
-Github token
-bd62bb3364962b752d8d0fd22c63fed3cdf0e301
-
-Jenkinstoken: 212d1b0930f3f99fe1fa10393b7043ff204557ac
 
 ### Jenkinsfile
 
