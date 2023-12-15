@@ -2,11 +2,13 @@
 
 ## Requirements
 
-Sonarque: check official docs for last pre-requisites and [linux file descriptors](https://docs.sonarsource.com/sonarqube/9.9/requirements/prerequisites-and-overview/#linux)
+Sonarqube: check official docs for [last pre-requisites](https://docs.sonarsource.com/sonarqube/9.9/requirements/prerequisites-and-overview)
 
 Local configuration with docker and docker compose:
 * Docker latest version checked: 23.0.5
 * Docker compose latest version checked: v2.17.3
+
+Also check **Docker Host Requirements** section on Dockerhub [Sonarqube](https://hub.docker.com/_/sonarqube)
 
 ## Steps
 
@@ -75,7 +77,7 @@ Run in [sonarqube-postgres](sonarqube-postgres) dir:
 ```shell
 $ git clone git@github.com:SonarqubeGeekshubs/environment-docker-compose.git
 $ cd environment-docker-compose/sonarqube-postgres
-$ docker-compose up -d
+$ docker compose up -d
 ```
 
 ### Jenkins
@@ -86,7 +88,7 @@ Run in [sonarqube-jenkins](sonarqube-jenkins) dir:
 ```shell
 $ git clone git@github.com:SonarqubeGeekshubs/environment-docker-compose.git
 $ cd environment-docker-compose/sonarqube-jenkins
-$ docker-compose up -d
+$ docker compose up -d
 ```
 ## Quality Game
 
@@ -105,5 +107,5 @@ CAMPAIGNSTART_DATE=2023-05-19
 
 Docker:
 ```shell
-docker-compose -f docker-compose-quboo.yml up
+docker compose -f docker-compose-quboo.yml up
 ```

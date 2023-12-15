@@ -4,13 +4,13 @@
 
 Execute this [docker-compose.yml](docker-compose.yml) configuration file to start SonarQube, a PostgreSQL database and Jenkins CI.
 ```shell
-docker-compose up
+docker compose up
 ```
 
 Restart the containers (after plugin upgrade or install for example).
 
 ```shell
-docker-compose restart sonarqube
+docker compose restart sonarqube
 ```
 
 Analyse a project with Maven:
@@ -22,7 +22,7 @@ mvn sonar:sonar \
 
 Command to stop and remove compose environment:
 ```shell
-docker-compose down --rmi local -v --remove-orphans
+docker compose down --rmi local -v --remove-orphans
 ```
 
 ### Jenkinsfile
