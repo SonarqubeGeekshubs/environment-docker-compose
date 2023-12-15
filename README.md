@@ -2,7 +2,11 @@
 
 ## Requirements
 
- * Docker 20.10.21
+Sonarque: check official docs for last pre-requisites and [linux file descriptors](https://docs.sonarsource.com/sonarqube/9.9/requirements/prerequisites-and-overview/#linux)
+
+Local configuration with docker and docker compose:
+* Docker latest version checked: 23.0.5
+* Docker compose latest version checked: v2.17.3
 
 ## Steps
 
