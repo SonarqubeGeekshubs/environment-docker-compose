@@ -16,7 +16,7 @@ Analyse a project with Maven:
 ```shell
 mvn sonar:sonar \
   -Dsonar.host.url=http://localhost:9000 \
-  -Dsonar.token=sqa_4ca76618fb3ab502f0c427a5a1c82c247d8f9608
+  -Dsonar.login=<sonar-analysis-token>
 ```
 
 Command to stop and remove compose environment:
